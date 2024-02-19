@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/github-helper/static/css/main.c130f3d2.css",
+    "main.js": "/github-helper/static/js/main.5bb67d13.js",
+    "static/media/bigSearch.png": "/github-helper/static/media/bigSearch.265a38582130035fe898.png",
+    "index.html": "/github-helper/index.html",
+    "main.c130f3d2.css.map": "/github-helper/static/css/main.c130f3d2.css.map",
+    "main.5bb67d13.js.map": "/github-helper/static/js/main.5bb67d13.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c130f3d2.css",
+    "static/js/main.5bb67d13.js"
+  ]
+}
