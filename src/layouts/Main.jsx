@@ -8,7 +8,6 @@ function Main({ user, search, setSearch, repo, searchRepos, hasError }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [reposPerPage] = useState(6);
 
-
   const lastRepoIndex = currentPage * reposPerPage;
   const firstRepoIndex = lastRepoIndex - reposPerPage;
   const currentRepo = repo.slice(firstRepoIndex, lastRepoIndex);
