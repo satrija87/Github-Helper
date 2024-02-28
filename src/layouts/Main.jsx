@@ -1,12 +1,19 @@
 import React, { useState } from "react";
 import { UserCard } from "../components/UserCard";
-
+import { Preloader } from "../components/Preloader";
 import { Repositories } from "../components/Repositories";
-import { HomePage } from "../components/HomePage";
 
-function Main({ user, search, setSearch, repo, searchRepos, hasError }) {
+const Main = ({
+  user,
+  search,
+  setSearch,
+  repo,
+  searchRepos,
+  hasError,
+  loading,
+}) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [reposPerPage] = useState(6);
+  const reposPerPage = 6;
 
   const lastRepoIndex = currentPage * reposPerPage;
   const firstRepoIndex = lastRepoIndex - reposPerPage;
@@ -14,7 +21,9 @@ function Main({ user, search, setSearch, repo, searchRepos, hasError }) {
 
   return (
     <main className="flex px-8 py-6 bg-slate-200 h-screen ">
-      {user.length !== 0 && !hasError ? (
+      {loading ? (
+        <Preloader />
+      ) : (
         <>
           <UserCard user={user} />
           <Repositories
@@ -28,11 +37,9 @@ function Main({ user, search, setSearch, repo, searchRepos, hasError }) {
             currentPage={currentPage}
           />
         </>
-      ) : (
-        <HomePage />
       )}
     </main>
   );
-}
+};
 
 export { Main };

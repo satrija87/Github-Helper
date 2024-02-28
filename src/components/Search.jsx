@@ -1,21 +1,14 @@
 import React from "react";
 import searchIcon from "../assets/search.png";
 
-
-function Search({
-  search,
-  setSearch,
-  searchRepos,
-  searchUsers,
- 
-}) {
-  let handleQuery = (str) => {
+const Search = ({ search, setSearch, searchRepos, searchUsers }) => {
+  const handleQuery = (str) => {
     searchRepos(str);
     searchUsers(str);
     setSearch("");
   };
 
-  let handleKey = (e) => {
+  const handleKey = (e) => {
     if (e.key === "Enter") {
       return handleQuery(search);
     }
@@ -36,15 +29,13 @@ function Search({
       />
       <button
         className="mx-2.5 bg-sky-600 px-1.5 py-0.5 rounded text-white"
-        onClick={() => {
-          return handleQuery(search);
-        }}
+        onClick={() => handleQuery(search)}
       >
         search
       </button>
     </div>
   );
-}
+};
 
 export { Search };
 // #A9A4A4

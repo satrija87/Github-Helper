@@ -1,6 +1,6 @@
 import React from "react";
 
-function Pagination({ reposPerPage, totalRepos, currentPage, setCurrentPage }) {
+const Pagination=({ reposPerPage, totalRepos, currentPage, setCurrentPage }) =>{
   const pageNumbers = [];
 
   const paginate = (pageNumber) => {
@@ -17,7 +17,7 @@ function Pagination({ reposPerPage, totalRepos, currentPage, setCurrentPage }) {
       setCurrentPage(currentPage + 1);
     }
   };
-  let nPages = Math.ceil(totalRepos / reposPerPage);
+  const nPages = Math.ceil(totalRepos / reposPerPage);
   for (let i = 1; i <= nPages; i++) {
     pageNumbers.push(i);
   }
@@ -45,9 +45,7 @@ function Pagination({ reposPerPage, totalRepos, currentPage, setCurrentPage }) {
             >
               <span
                 className={activeClass}
-                onClick={() => {
-                  return paginate(number);
-                }}
+                onClick={() => paginate(number)}
               >
                 {number}
               </span>

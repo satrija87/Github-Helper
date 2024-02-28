@@ -1,13 +1,13 @@
 import { Repository } from "./Repository";
 import { Pagination } from "./Pagination";
 
-function Repositories({
+const Repositories = ({
   repo,
   currentRepo,
   reposPerPage,
   setCurrentPage,
   currentPage,
-}) {
+}) => {
   return (
     <div className="w-9/12 ">
       <h2 className="text-black text-2xl font-bold mb-4">
@@ -26,5 +26,5 @@ function Repositories({
       />
     </div>
   );
-}
+};
 export { Repositories };
