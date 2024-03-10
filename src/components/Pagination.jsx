@@ -1,8 +1,14 @@
 import React from "react";
+import { Pages } from "./Pages";
 
-const Pagination=({ reposPerPage, totalRepos, currentPage, setCurrentPage }) =>{
-  const pageNumbers = [];
-
+const Pagination = ({
+  reposPerPage,
+  totalRepos,
+  currentPage,
+  setCurrentPage,
+}) => {
+  const nPages = Math.ceil(totalRepos / reposPerPage);
+  
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
@@ -17,10 +23,6 @@ const Pagination=({ reposPerPage, totalRepos, currentPage, setCurrentPage }) =>{
       setCurrentPage(currentPage + 1);
     }
   };
-  const nPages = Math.ceil(totalRepos / reposPerPage);
-  for (let i = 1; i <= nPages; i++) {
-    pageNumbers.push(i);
-  }
 
   return (
     <div className="flex  justify-end  ">
@@ -32,26 +34,7 @@ const Pagination=({ reposPerPage, totalRepos, currentPage, setCurrentPage }) =>{
           {" "}
           &lt;
         </span>
-        {pageNumbers.map((number) => {
-          let activeClass =
-            currentPage === number
-              ? "text-white bg-sky-600 px-2 py-1"
-              : "px-2 py-1";
-
-          return (
-            <li
-              key={number}
-              className="text-slate-400 border-2.5  w-2.5 mx-2 font-bold  decoration-solid cursor-pointer  "
-            >
-              <span
-                className={activeClass}
-                onClick={() => paginate(number)}
-              >
-                {number}
-              </span>
-            </li>
-          );
-        })}
+        <Pages nPages={nPages} currentPage={currentPage} paginate={paginate} />
         <span
           className="text-slate-400 border-2.5  w-2.5 mx-2 font-bold  decoration-solid hover:text-sky-600 cursor-pointer"
           onClick={() => nextPage()}
@@ -62,6 +45,6 @@ const Pagination=({ reposPerPage, totalRepos, currentPage, setCurrentPage }) =>{
       </ul>
     </div>
   );
-}
+};
 
 export { Pagination };
